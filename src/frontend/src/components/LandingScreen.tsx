@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
 interface LandingScreenProps {
@@ -134,7 +134,51 @@ export function LandingScreen({ onStart }: LandingScreenProps) {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 text-center no-print">
+      <footer className="py-8 text-center no-print space-y-6">
+        {/* Buy the book */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="flex justify-center"
+        >
+          <a
+            data-ocid="landing.buy_book_link"
+            href="https://a.co/d/00s6Biog"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-sage/40 bg-sage-light/50 text-sage font-sans text-sm font-medium hover:bg-sage-light hover:border-sage/70 transition-all duration-200 shadow-sm"
+          >
+            <BookOpen className="w-4 h-4" />
+            Get the Book on Amazon
+          </a>
+        </motion.div>
+
+        {/* About the author */}
+        <motion.div
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.4 }}
+          className="flex justify-center"
+        >
+          <a
+            data-ocid="landing.author_link"
+            href="https://www.amazon.com/author/psychology"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 px-5 py-3 rounded-full border border-muted/40 bg-parchment/60 hover:bg-parchment transition-all duration-200 group"
+          >
+            <img
+              src="/assets/uploads/gregai-1.jpg"
+              alt="Greg Derbedrossian"
+              className="w-9 h-9 rounded-full object-cover border border-sage/30 group-hover:border-sage/60 transition-colors"
+            />
+            <span className="font-sans text-sm text-muted-foreground group-hover:text-foreground transition-colors">
+              More about the author
+            </span>
+          </a>
+        </motion.div>
+
         <p className="text-xs text-muted-foreground font-sans">
           © {new Date().getFullYear()}.{" "}
           <a
